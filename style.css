@@ -4,8 +4,43 @@ html {
     position: relative;
     min-height: 100%;
   }
-  body {
-    margin-bottom: 60px; /* Margin bottom by footer height */
-  }
 
-  
+  body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0a0a0a; /* Sleek dark background */
+            overflow: hidden; /* Prevent actual scrolling, we are overriding the wheel event */
+        }
+
+        @keyframes rainbowCycle {
+            0%   { color: #00ff00; text-shadow: 0 0 20px rgba(255, 0, 85, 0.4); }
+            25%  { color: #c8ef04; text-shadow: 0 0 20px rgba(0, 255, 170, 0.4); }
+            50%  { color: #ffe100; text-shadow: 0 0 20px rgba(85, 0, 255, 0.4); }
+            75%  { color: #c8ef04; text-shadow: 0 0 20px rgba(255, 170, 0, 0.4); }
+            100% { color: #00ff00; text-shadow: 0 0 20px rgba(255, 0, 85, 0.4); }
+        }
+
+        .energy-text {
+            animation: rainbowCycle 4s infinite linear;
+        }
+
+        /* Custom transition classes triggered by JavaScript */
+        .zoom-away {
+            transform: scale(3); /* Zooms towards the user to disappear 'past' the camera */
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .reveal-in {
+            transform: scale(1) !important;
+            opacity: 1 !important;
+        }
+
+        .fade-in {
+            opacity: 1 !important;
+        }
+
+        .fade-in:hover {
+            opacity: 0.75 !important;
+        }
